@@ -1,3 +1,8 @@
+
+[![Arduino CI](https://github.com/RobTillaart/MT8870/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/RobTillaart/MT8870/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/RobTillaart/MT8870.svg?maxAge=3600)](https://github.com/RobTillaart/MT8870/releases)
+
 # MT8870
 
 Arduino library for MT8870 DTMF decoder (breakout)

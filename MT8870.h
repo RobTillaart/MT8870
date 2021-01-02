@@ -2,7 +2,7 @@
 //
 //    FILE: MT8870.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.1
+// VERSION: 0.1.2
 //    DATE: 2019-02-11
 // PURPOSE: Arduino library for MT8870 DTMF decoder (breakout)
 //     URL: https://github.com/RobTillaart/MT8870
@@ -11,7 +11,7 @@
 
 #include "Arduino.h"
 
-#define MT8870_LIB_VERSION "0.1.1"
+#define MT8870_LIB_VERSION "0.1.2"
 
 class MT8870
 {
