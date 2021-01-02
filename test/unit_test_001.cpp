@@ -92,15 +92,33 @@ unittest(test_read)
   state->digitalPin[Q2] = 0;
   state->digitalPin[Q3] = 0;
   state->digitalPin[Q4] = 1;
-
   assertEqual('9', DTMF.read());
 
+  state->digitalPin[Q1] = 1;        // 1 +
+  state->digitalPin[Q2] = 0;        // 
+  state->digitalPin[Q3] = 1;        // 4 +
+  state->digitalPin[Q4] = 1;        // 8 == 13
+  assertEqual(13, DTMF.readRaw());
+  assertEqual(13, DTMF.lastRaw());
+
+  state->digitalPin[STQ] = 0;   // not available
   state->digitalPin[Q1] = 1;
   state->digitalPin[Q2] = 0;
   state->digitalPin[Q3] = 1;
   state->digitalPin[Q4] = 1;
-  assertEqual(13, DTMF.readRaw());
-  assertEqual(13, DTMF.lastRaw());
+  assertEqual(255, DTMF.readRaw());
+  
+  fprintf(stderr, "loop over 16 possible values\n");
+  for (int i = 0; i < 16; i++)
+  {
+    fprintf(stderr, "%d\t", i);
+    state->digitalPin[STQ] = 1;
+    state->digitalPin[Q1] = i & 0x01;
+    state->digitalPin[Q2] = i & 0x02;
+    state->digitalPin[Q3] = i & 0x04;
+    state->digitalPin[Q4] = i & 0x08;
+    assertEqual(i, DTMF.readRaw());
+  }
 }
 
 unittest_main()
