@@ -99,8 +99,8 @@ unittest(test_read)
   state->digitalPin[Q2] = 0;
   state->digitalPin[Q3] = 1;
   state->digitalPin[Q4] = 1;
-  assertEqual(11, DTMF.readRaw());
-  assertEqual(11, DTMF.lastRaw());
+  assertEqual(13, DTMF.readRaw());
+  assertEqual(13, DTMF.lastRaw());
 }
 
 unittest_main()
