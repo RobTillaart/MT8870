@@ -62,7 +62,7 @@ unittest(test_new_operator)
 }
 */
 
-unittest(test_all)
+unittest(test_constructor)
 {
   fprintf(stderr, "VERSION: %s\n", MT8870_LIB_VERSION);
 
@@ -72,10 +72,35 @@ unittest(test_all)
   DTMF.begin(STQ, Q1, Q2, Q3, Q4);
 
   assertFalse(DTMF.available());
+}
 
-  assertEqual(0, DTMF.read());
-  assertEqual(0, DTMF.readRaw());
-  assertEqual(0, DTMF.lastRaw());
+
+unittest(test_read)
+{
+  GodmodeState* state = GODMODE();
+  state->reset();
+  
+  uint8_t STQ = 4, Q1 = 5, Q2 = 6, Q3 = 7, Q4 = 8;
+  MT8870 DTMF;
+
+  DTMF.begin(STQ, Q1, Q2, Q3, Q4);
+  assertFalse(DTMF.available());
+  state->digitalPin[STQ] = 1;
+  assertTrue(DTMF.available());
+
+  state->digitalPin[Q1] = 1;
+  state->digitalPin[Q2] = 0;
+  state->digitalPin[Q3] = 0;
+  state->digitalPin[Q4] = 1;
+
+  assertEqual('9', DTMF.read());
+
+  state->digitalPin[Q1] = 1;
+  state->digitalPin[Q2] = 0;
+  state->digitalPin[Q3] = 1;
+  state->digitalPin[Q4] = 1;
+  assertEqual(11, DTMF.readRaw());
+  assertEqual(11, DTMF.lastRaw());
 }
 
 unittest_main()
