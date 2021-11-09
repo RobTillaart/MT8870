@@ -26,13 +26,13 @@ public:
   char     read();
   uint8_t  readRaw();
   uint8_t  lastRaw()  { return _val; };
-  uint32_t lastTime() { return _lastTime; };
+  uint32_t lastTimeRead() { return _lastTimeRead; };
 
 private:
   uint8_t   _val = 255;
   uint8_t   _STQ;
   uint8_t   _q[4];
-  uint32_t  _lastTime;
+  uint32_t  _lastTimeRead;
 };
 
 

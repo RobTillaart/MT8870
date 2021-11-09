@@ -47,7 +47,7 @@ with one MT8870 object by calling **begin()** with other pins.
 - **uint8_t readRaw()** returns 0 .. 15 or 255 if no signal is available.
 - **uint8_t lastRaw()** returns the last code read 0 .. 15 or 255 if no signal available.
 Note this is a cached value from a readRaw / read call.
-- **uint32_t lastTime()** returns the timestamp of last **read()** or **readRaw()**. 
+- **uint32_t lastTimeRead()** returns the timestamp of last **read()** or **readRaw()**. 
 
 
 ## Future / ideas / improvements

@@ -52,7 +52,7 @@ uint8_t MT8870::readRaw()
     if (digitalRead(_q[2]) == HIGH) _val += 0x04;
     if (digitalRead(_q[3]) == HIGH) _val += 0x08;
   }
-  _lastTime = millis();
+  _lastTimeRead = millis();
   return _val;
 }
 
