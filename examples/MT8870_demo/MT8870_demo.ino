@@ -13,11 +13,11 @@ MT8870 DTMF;
 void setup()
 {
   Serial.begin(115200);
-  Serial.print();
+  Serial.println();
   Serial.println(__FILE__);
   Serial.print("MT8870_LIB_VERSION: ");
   Serial.println(MT8870_LIB_VERSION);
-  Serial.print();
+  Serial.println();
 
   DTMF.begin(2, 4, 5, 6, 7);
 }
@@ -40,4 +40,3 @@ void loop()
 
 
 //  -- END OF FILE --
-
